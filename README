@@ -1,13 +1,24 @@
 GreaseDocs
 ==========
 
-Introduction goes here.
+Use the Google Docs spreadsheet UI for editing collections of data.
 
 
 Example
 =======
 
-Example goes here.
+script/plugin install git://github.com/ckhsponge/grease_docs.git
+
+class Exam < ActiveRecord::Base
+  has_many :people
+  
+  acts_as_grease_doc
+  grease_doc_collection :people, :class => Person, :association_name => :exam
+  grease_doc_columns [:id, :name, :iq, :birthdate], :names => ["ID", "Name", "IQ", "Birthdate"]
+end
+
+or see
+https://github.com/ckhsponge/Grease-Docs-Example
 
 
 Copyright (c) 2010 [name of plugin creator], released under the MIT license
